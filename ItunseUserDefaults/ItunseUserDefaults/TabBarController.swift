@@ -51,7 +51,6 @@ class TabBarController: UITabBarController {
    }
 }
 
-
 extension TabBarController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -59,26 +58,13 @@ extension TabBarController: UISearchBarDelegate {
             return
         }
 
-//        networkManager.getCharacter(albumName: searchText) { [weak self] albums in
-//
-//            if let getAlbums = self?.networkManager.getAlbumsFromDisk() {
-//                print("getAlbums count", getAlbums.count)
-//                self?.albums = getAlbums
-//                if let searchTexts = self?.networkManager.getSearchTextFromDisk() {
-//                    self?.searchHistoryViewController.searchHistory = searchTexts
-//                }
-//            } else {
-//                self?.albums = albums
-//            }
-//
-//            self?.networkManager.saveAlbumToDisk(albums)
-//            self?.networkManager.saveSearchTextToDisk(searchText: searchText)
-//            DispatchQueue.main.async {
-//                self?.viewController.albums = albums
-//                self?.viewController.collectionView.reloadData()
-//                self?.searchHistoryViewController.tableView.reloadData()
-//            }
-//        }
+        networkManager.getCharacter(albumName: searchText) { [weak self] albums in
+            DispatchQueue.main.async {
+                self?.viewController.albums = albums
+                self?.viewController.collectionView.reloadData()
+                self?.searchHistoryViewController.tableView.reloadData()
+            }
+        }
 
 //        searchBar.resignFirstResponder()
     }

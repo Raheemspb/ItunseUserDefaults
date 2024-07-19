@@ -48,6 +48,7 @@ class NetworkManager {
             do {
                 let album = try JSONDecoder().decode(AlbumName.self, from: data).results
                 completionHandler(album)
+                print("Good")
             } catch {
                 print("Error: ", error.localizedDescription)
             }
