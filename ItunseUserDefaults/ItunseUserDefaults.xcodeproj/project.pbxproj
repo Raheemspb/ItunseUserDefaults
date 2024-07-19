@@ -15,7 +15,11 @@
 		AA1D00D62C4A5A30001AC05C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AA1D00D52C4A5A30001AC05C /* Base */; };
 		AA1D00DF2C4A5A93001AC05C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AA1D00DE2C4A5A93001AC05C /* SnapKit */; };
 		AA1D00E12C4A5A93001AC05C /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = AA1D00E02C4A5A93001AC05C /* SnapKit-Dynamic */; };
-		AA1D00E42C4A5A9E001AC05C /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA1D00E32C4A5A9E001AC05C /* KeychainSwift */; };
+		AA1D00E62C4A5B58001AC05C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D00E52C4A5B58001AC05C /* NetworkManager.swift */; };
+		AA1D00E82C4A5BAA001AC05C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D00E72C4A5BAA001AC05C /* TabBarController.swift */; };
+		AA1D00EA2C4A5D0A001AC05C /* SearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D00E92C4A5D0A001AC05C /* SearchHistoryViewController.swift */; };
+		AA1D00EC2C4A5D8B001AC05C /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D00EB2C4A5D8B001AC05C /* AlbumDetailViewController.swift */; };
+		AA1D00EE2C4A5E03001AC05C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D00ED2C4A5E03001AC05C /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,11 @@
 		AA1D00D22C4A5A30001AC05C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA1D00D52C4A5A30001AC05C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA1D00D72C4A5A30001AC05C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA1D00E52C4A5B58001AC05C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		AA1D00E72C4A5BAA001AC05C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		AA1D00E92C4A5D0A001AC05C /* SearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewController.swift; sourceTree = "<group>"; };
+		AA1D00EB2C4A5D8B001AC05C /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
+		AA1D00ED2C4A5E03001AC05C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,7 +43,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA1D00E42C4A5A9E001AC05C /* KeychainSwift in Frameworks */,
 				AA1D00DF2C4A5A93001AC05C /* SnapKit in Frameworks */,
 				AA1D00E12C4A5A93001AC05C /* SnapKit-Dynamic in Frameworks */,
 			);
@@ -65,6 +73,11 @@
 				AA1D00C92C4A5A2E001AC05C /* AppDelegate.swift */,
 				AA1D00CB2C4A5A2E001AC05C /* SceneDelegate.swift */,
 				AA1D00CD2C4A5A2E001AC05C /* ViewController.swift */,
+				AA1D00ED2C4A5E03001AC05C /* CollectionViewCell.swift */,
+				AA1D00E52C4A5B58001AC05C /* NetworkManager.swift */,
+				AA1D00E72C4A5BAA001AC05C /* TabBarController.swift */,
+				AA1D00E92C4A5D0A001AC05C /* SearchHistoryViewController.swift */,
+				AA1D00EB2C4A5D8B001AC05C /* AlbumDetailViewController.swift */,
 				AA1D00CF2C4A5A2E001AC05C /* Main.storyboard */,
 				AA1D00D22C4A5A30001AC05C /* Assets.xcassets */,
 				AA1D00D42C4A5A30001AC05C /* LaunchScreen.storyboard */,
@@ -92,7 +105,6 @@
 			packageProductDependencies = (
 				AA1D00DE2C4A5A93001AC05C /* SnapKit */,
 				AA1D00E02C4A5A93001AC05C /* SnapKit-Dynamic */,
-				AA1D00E32C4A5A9E001AC05C /* KeychainSwift */,
 			);
 			productName = ItunseUserDefaults;
 			productReference = AA1D00C62C4A5A2E001AC05C /* ItunseUserDefaults.app */;
@@ -124,7 +136,6 @@
 			mainGroup = AA1D00BD2C4A5A2E001AC05C;
 			packageReferences = (
 				AA1D00DD2C4A5A93001AC05C /* XCRemoteSwiftPackageReference "SnapKit" */,
-				AA1D00E22C4A5A9E001AC05C /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = AA1D00C72C4A5A2E001AC05C /* Products */;
 			projectDirPath = "";
@@ -153,8 +164,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA1D00E62C4A5B58001AC05C /* NetworkManager.swift in Sources */,
+				AA1D00EA2C4A5D0A001AC05C /* SearchHistoryViewController.swift in Sources */,
+				AA1D00EE2C4A5E03001AC05C /* CollectionViewCell.swift in Sources */,
 				AA1D00CE2C4A5A2E001AC05C /* ViewController.swift in Sources */,
 				AA1D00CA2C4A5A2E001AC05C /* AppDelegate.swift in Sources */,
+				AA1D00EC2C4A5D8B001AC05C /* AlbumDetailViewController.swift in Sources */,
+				AA1D00E82C4A5BAA001AC05C /* TabBarController.swift in Sources */,
 				AA1D00CC2C4A5A2E001AC05C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,14 +404,6 @@
 				minimumVersion = 5.7.1;
 			};
 		};
-		AA1D00E22C4A5A9E001AC05C /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 24.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -408,11 +416,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AA1D00DD2C4A5A93001AC05C /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = "SnapKit-Dynamic";
-		};
-		AA1D00E32C4A5A9E001AC05C /* KeychainSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AA1D00E22C4A5A9E001AC05C /* XCRemoteSwiftPackageReference "keychain-swift" */;
-			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
