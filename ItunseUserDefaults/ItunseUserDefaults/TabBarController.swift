@@ -20,9 +20,9 @@ class TabBarController: UITabBarController {
         view.backgroundColor = .white
         setupViewControllers()
         setupSearchBar()
-//        if let searchTexts = networkManager.getSearchTextFromDisk() {
-//            performInitialSearch(with: searchTexts.last!)
-//        }
+        if let searchTexts = networkManager.getSearchTextFromUserDefaults() {
+            performInitialSearch(with: searchTexts.last!)
+        }
     }
 
     private func setupSearchBar() {
@@ -59,6 +59,22 @@ extension TabBarController: UISearchBarDelegate {
         }
 
         networkManager.getCharacter(albumName: searchText) { [weak self] albums in
+
+            if let getAlbums = self?.networkManager.getAlbumsFromUserDefaults() {
+                print("getAlbums count", getAlbums.count)
+                self?.albums = getAlbums
+                if let searchTexts = self?.networkManager.getSearchTextFromUserDefaults() {
+                    self?.searchHistoryViewController.searchHistory = searchTexts
+                } else {
+                    print("else")
+                }
+                self?.networkManager.saveAlbumsToUserDefaults(albums)
+                self?.networkManager.saveSearchTextToUserDefaults(searchText)
+            } else {
+                self?.albums = albums
+            }
+
+
             DispatchQueue.main.async {
                 self?.viewController.albums = albums
                 self?.viewController.collectionView.reloadData()

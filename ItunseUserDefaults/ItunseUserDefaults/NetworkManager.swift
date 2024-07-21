@@ -21,6 +21,7 @@ struct Album: Codable {
 class NetworkManager {
 
     static let shared = NetworkManager()
+    let defaults = UserDefaults.standard
 
     func fetchAlbum(albumName: String) -> String {
         let url = "https://itunes.apple.com/search?term=\(albumName)&entity=album&attribute=albumTerm"
@@ -54,5 +55,48 @@ class NetworkManager {
             }
         }.resume()
     }
-    
+
+    func saveAlbumsToUserDefaults(_ albums: [Album]) {
+
+        do {
+            let encodedData = try JSONEncoder().encode(albums)
+            defaults.setValue(encodedData, forKey: "albums")
+            print("Albums saved to User Defaults")
+        } catch {
+            print("Error saving albums to UserDefaults: ", error.localizedDescription)
+        }
+    }
+
+    func getAlbumsFromUserDefaults() -> [Album]? {
+
+        do {
+            if let albumData = defaults.data(forKey: "albums") {
+                let decodedData = try? JSONDecoder().decode([Album].self, from: albumData)
+                return decodedData
+            }
+            return nil
+        }
+    }
+
+    func saveSearchTextToUserDefaults(_ searchText: String) {
+        var searchTexts = getSearchTextFromUserDefaults() ?? []
+                searchTexts.append(searchText)
+
+        do {
+            let encodedData = try JSONEncoder().encode(searchTexts) // Кодируем массив строк
+                defaults.setValue(encodedData, forKey: "searchText") // Сохраняем закодированные данные в UserDefaults
+            print("Search text saved to User Defaults")
+        } catch {
+            print("Error saving search text: ", error.localizedDescription)
+        }
+
+    }
+
+    func getSearchTextFromUserDefaults() -> [String]? {
+            if let searchTextData = defaults.data(forKey: "searchText") {
+                let decodedData = try? JSONDecoder().decode([String].self, from: searchTextData)
+                return decodedData
+            }
+        return nil
+    }
 }
