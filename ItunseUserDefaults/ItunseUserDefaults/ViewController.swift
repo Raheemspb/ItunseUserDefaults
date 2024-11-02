@@ -52,8 +52,17 @@ extension ViewController: UICollectionViewDataSource {
         albums.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseId, for: indexPath) as? CollectionViewCell else { return UICollectionViewCell() }
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: CollectionViewCell.reuseId,
+            for: indexPath
+        ) as? CollectionViewCell else {
+            return UICollectionViewCell()
+        }
 
         let album = albums[indexPath.item]
         guard let imageUrl = URL(string: album.artworkUrl100) else { return cell }
@@ -86,7 +95,5 @@ extension ViewController: UICollectionViewDelegate {
         albumDetailsViewController.title = album.artistName
 
         navigationController?.pushViewController(albumDetailsViewController, animated: false)
-
     }
 }
-

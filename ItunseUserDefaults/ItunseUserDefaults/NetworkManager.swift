@@ -83,8 +83,8 @@ class NetworkManager {
                 searchTexts.append(searchText)
 
         do {
-            let encodedData = try JSONEncoder().encode(searchTexts) // Кодируем массив строк
-                defaults.setValue(encodedData, forKey: "searchText") // Сохраняем закодированные данные в UserDefaults
+            let encodedData = try JSONEncoder().encode(searchTexts)
+                defaults.setValue(encodedData, forKey: "searchText")
             print("Search text saved to User Defaults")
         } catch {
             print("Error saving search text: ", error.localizedDescription)

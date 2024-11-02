@@ -36,7 +36,13 @@ class TabBarController: UITabBarController {
 
     private func setupViewControllers() {
         let searchNavController = UINavigationController(rootViewController: viewController)
-        searchNavController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
+        searchNavController.tabBarItem = UITabBarItem(
+            title: "Search",
+            image: UIImage(
+                systemName: "magnifyingglass"
+            ),
+            tag: 0
+        )
 
         let historyNavController = UINavigationController(rootViewController: searchHistoryViewController)
         historyNavController.tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "clock"), tag: 1)
@@ -73,7 +79,6 @@ extension TabBarController: UISearchBarDelegate {
             } else {
                 self?.albums = albums
             }
-
 
             DispatchQueue.main.async {
                 self?.viewController.albums = albums
